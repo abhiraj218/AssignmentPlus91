@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-battery-status"
+        version="1.0.0">
+    <name>Battery Status</name>
+    <js-module src="www/BatteryStatus.js" name="BatteryStatus">
+        <clobbers target="BatteryStatus" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="BatteryStatus">
+                <param name="android-package" value="com.example.battery.BatteryStatus" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/BatteryStatus.java" target-dir="src/com/example/battery" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="BatteryStatus">
+                <param name="ios-package" value="BatteryStatus" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/BatteryStatus.m" />
+    </platform>
+</plugin>
